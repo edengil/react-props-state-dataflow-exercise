@@ -30,9 +30,17 @@ class App extends Component {
   }
   // SPOT-CHECK-2: 
   //  your generateCompanyTags method here 
+generateCompanyTags(companies) {
+  let companyTag = []
+  for (let c of companies){
+    companyTag.push(<Company name={c.name} revenue={c.revenue}/>)
+  }
+  return companyTag
+}
 
   // SPOT-CHECK-3:
   // your upperCase method here
+  upperCase = (name) => name.toUpperCase()
 
   render() {
 
@@ -49,7 +57,7 @@ class App extends Component {
         <div className="ex-space">
           <h4 className="ex-title">Spotcheck 1</h4>
           <div className="exercise" id="spotcheck-1">
-            {/* your code here */}
+            <Company name={companies[0].name} revenue={companies[0].revenue}/>
           </div>
         </div>
 
@@ -57,6 +65,7 @@ class App extends Component {
           <h4 className="ex-title">Spotcheck 2</h4>
           <div className="exercise" id="spotcheck-2">
             {/* your code here */}
+           {this.generateCompanyTags(companies)}
           </div>
         </div>
 
@@ -64,6 +73,8 @@ class App extends Component {
           <h4 className="ex-title">Spotcheck 3</h4>
           <div className="exercise" id="spotcheck-3">
             {/* your code here */}
+            {companies.map(c => <Company name={this.upperCase(c.name)}  revenue={c.revenue} />)}
+
           </div>
         </div>
 
