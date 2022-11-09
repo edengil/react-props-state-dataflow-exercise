@@ -10,6 +10,11 @@
 /build
 
 # misc
+
+.babelrc
+.node_modules
+.circleci
+.jest.config
 .DS_Store
 .env.local
 .env.development.local
