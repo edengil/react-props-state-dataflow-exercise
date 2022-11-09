@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
 class Landing extends Component {
-    /* your code here */
 
 
     render() {
-        return {/* your code here */ }
+        return (<div>
+            Welcome {this.props.user}. The hottest item is: {this.props.store.map(w =><div>{w.item} for ${w.price}</div>)} 
 
+        </div>)
     }
 }
 

@@ -24,8 +24,13 @@ class App extends Component {
         { item: "Gizem Backwatch", price: 230, discount: 0.6, hottest: false },
         { item: "Surround Sound Pelican", price: 3099, discount: 0.05, hottest: true }
       ],
-      shouldDiscount: false,
-      currentPage: "Landing"
+      shouldDiscount: true,
+      currentPage: "Landing",
+      companies :[
+        { name: "Tesla", revenue: 140 },
+        { name: "Microsoft", revenue: 300 },
+        { name: "Google", revenue: 600 }
+      ]
     }
   }
   // SPOT-CHECK-2: 
@@ -64,7 +69,6 @@ generateCompanyTags(companies) {
         <div className="ex-space">
           <h4 className="ex-title">Spotcheck 2</h4>
           <div className="exercise" id="spotcheck-2">
-            {/* your code here */}
            {this.generateCompanyTags(companies)}
           </div>
         </div>
@@ -72,7 +76,6 @@ generateCompanyTags(companies) {
         <div className="ex-space">
           <h4 className="ex-title">Spotcheck 3</h4>
           <div className="exercise" id="spotcheck-3">
-            {/* your code here */}
             {companies.map(c => <Company name={this.upperCase(c.name)}  revenue={c.revenue} />)}
 
           </div>
@@ -81,49 +84,57 @@ generateCompanyTags(companies) {
         <div className="ex-space">
           <h4 className="ex-title">Spotcheck 4</h4>
           <div className="exercise" id="spotcheck-4">
-            {/* your code here */}
+            <Wardrobe/>
           </div>
         </div>
 
         <div className="ex-space">
           <h4 className="ex-title">Spotcheck 5</h4>
           <div className="exercise" id="spotcheck-5">
-            {/* your code here */}
+            <Wardrobe2 />
           </div>
         </div>
 
         <div className="ex-space">
           <h4 className="ex-title">Spotcheck 6</h4>
           <div className="exercise" id="spotcheck-6">
-            {/* your code here */}
+            {this.state.companies.map(c => <Company name={this.upperCase(c.name)}  revenue={c.revenue} />)}
           </div>
         </div>
 
         <div className="ex-space">
           <h4 className="ex-title">Spotcheck 7</h4>
           <div className="exercise" id="spotcheck-7">
-            {/* your code here */}
+            <Calendar reservations={this.state.reservations} />
+            <Register reservations={this.state.reservations} /> 
           </div>
         </div>
 
         <div className="ex-space">
           <h4 className="ex-title">Exercise 1</h4>
           <div className="exercise" id="ex-1">
-            {/* your code here */}
+            <Hudini/>
           </div>
         </div>
 
         <div className="ex-space">
           <h4 className="ex-title">Exercise 2</h4>
           <div className="exercise" id="ex-2">
-            {/* your code here */}
+            <Landing user={this.state.user} store={this.state.store.filter(w => w.hottest === true)}/>
+            <hr></hr>
+            <Home store={this.state.store} shouldDiscount={this.state.shouldDiscount}/>
           </div>
         </div>
 
         <div className="ex-space">
           <h4 className="ex-title">Exercise 3</h4>
           <div className="exercise" id="ex-3">
-            {/* your code here */}
+            {this.state.currentPage === "Landing" 
+            ?
+            <Landing user={this.state.user} store={this.state.store.filter(w => w.hottest === true)}/>
+            :
+            <Home store={this.state.store} shouldDiscount={this.state.shouldDiscount}/>
+          }
           </div>
         </div>
 
@@ -131,6 +142,7 @@ generateCompanyTags(companies) {
           <h4 className="ex-title">Exercise 4</h4>
           <div className="exercise" id="ex-4">
             {/* your code here */}
+
           </div>
         </div>
 
